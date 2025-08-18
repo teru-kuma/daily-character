@@ -25,7 +25,7 @@ jobs:
           CURRENT_DATE=$(date '+%Y-%m-%d %H:%M')
           
           # README.mdを更新
-          dog > README.md << EOF
+          cat > README.md << EOFcat> readme.md << eof
           # 今日の癒し犬 🐶
           
           ![今日の犬]($DOG_URL)
