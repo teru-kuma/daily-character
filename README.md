@@ -1,6 +1,6 @@
-# 今日の癒し猫 🐱
+# 今日の癒し犬 🐶
 
-![今日の猫](https://cdn2.thecatapi.com/images/2dt.jpg)
+![今日の犬](https://cdn2.thedogapi.com/images/2dt.jpg)
 
 **画像情報:**
 - サイズ: 350 x 466
@@ -8,5 +8,5 @@
 
 ---
 
-このリポジトリは毎日朝9時に自動で猫画像が更新されます。
-GitHub Actionsの力で、365日違う猫に出会えます！
+このリポジトリは毎日朝9時に自動で犬画像が更新されます。
+GitHub Actionsの力で、365日違う犬に出会えます！
