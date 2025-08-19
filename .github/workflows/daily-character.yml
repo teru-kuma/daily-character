@@ -15,8 +15,14 @@ jobs:
         
       - name: Get dog image and update README
         run: |
+          # 候補の犬種ID
+          BREEDS=(222 90 161)
+
+          # ランダムに選択
+          RANDOM_BREED=${BREEDS[$RANDOM % ${#BREEDS[@]}]}
+          
           # 犬画像APIから画像情報を取得
-          DOG_DATA=$(curl -s "https://api.thedogapi.com/v1/images/search")
+          DOG_DATA=$(curl -s "https://api.thedogapi.com/v1/images/search?breed_id=$RANDOM_BREED")
           DOG_URL=$(echo $DOG_DATA | jq -r '.[0].url')
           DOG_WIDTH=$(echo $DOG_DATA | jq -r '.[0].width')
           DOG_HEIGHT=$(echo $DOG_DATA | jq -r '.[0].height')
