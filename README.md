@@ -1,6 +1,6 @@
 # 今日の癒し犬 🐶
 
-![今日の犬](https://cdn2.thedogapi.com/images/pxtkPmg3b.jpg)
+![今日の犬](https://cdn2.thedogapi.com/images/placeholder.jpg)
 
 **画像情報:**
 - サイズ: 1080 x 1080
