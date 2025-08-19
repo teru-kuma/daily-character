@@ -1,12 +1,12 @@
 # 今日の癒し犬 🐶
 
-![今日の犬](https://cdn2.thedogapi.com/images/placeholder.jpg)
+![今日の犬](https://cdn2.thedogapi.com/images/S82sy7Hfz.jpg)
 
 **画像情報:**
-- サイズ: null x null
-- 最終更新: 2025-08-19 14:28
+- サイズ: 1080 x 1080
+- 最終更新: 2025-08-19 14:32
 
 ---
 
-このリポジトリは毎日朝9時に自動で犬画像が更新されます。
+このリポジトリは毎日朝9時に自動で猫画像が更新されます。
 GitHub Actionsの力で、365日違う犬に出会えます！
