@@ -15,6 +15,15 @@ jobs:
         
       - name: Get dog image and update README
         run: |
+          set -euo pipefail
+
+          # 必要パッケージ
+          sudo apt-get update -y
+          sudo apt-get install -y jq imagemagick
+
+          # タイムゾーンをJSTに
+          export TZ=Asia/Tokyo
+          
           # 候補の犬種ID
           BREEDS=(222 90 161)
 
@@ -32,28 +41,25 @@ jobs:
           # ⚠ 要注意: 外部URLを保存する前に、出力先を限定
           curl -sL "$DOG_URL" -o docs/daily.jpg
 
-          # ⚠ 要注意: パッケージ導入は最小限
-          sudo apt-get update -y
-          sudo apt-get install -y imagemagick
-          DATE=$(date '+%Y-%m-%d')
+          DATE_TXT=$(date '+%Y-%m-%d')
           convert docs/daily.jpg \
             -gravity SouthEast \
             -pointsize 48 \
-            -fill white -undercolor '#00000080' \
-            -annotate +20+20 "$DATE" \
+            -fill white -stroke black -strokewidth 3 \
+            -annotate +20+20 "$DATE_TXT" \
             docs/daily.jpg
           
           # Pages公開URLを自動組み立て
           BASE="https://${{ github.repository_owner }}.github.io/${GITHUB_REPOSITORY#*/}"
 
-          # 現在の日時を取得（README表示用）
+          # 現在の日時を取得（README表示用JST）
           CURRENT_DATE=$(date '+%Y-%m-%d %H:%M')
           
           # README.mdを更新
           cat > README.md << EOF
           # 今日の癒し犬 🐶
            
-           ![今日の犬](${BASE}/daily.jpg?d=$(date +%Y%m%d%H%M))
+          ![今日の犬](${BASE}/daily.jpg?d=$(date +%Y%m%d%H%M))
           
           **画像情報:**
           - サイズ: ${DOG_WIDTH} x ${DOG_HEIGHT}
