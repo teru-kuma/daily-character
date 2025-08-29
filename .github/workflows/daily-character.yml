@@ -43,18 +43,21 @@ jobs:
             -annotate +20+20 "$DATE" \
             docs/daily.jpg
           
+          # Pages公開URLを自動組み立て
+          BASE="https://${{ github.repository_owner }}.github.io/${GITHUB_REPOSITORY#*/}"
+
           # 現在の日時を取得（README表示用）
           CURRENT_DATE=$(date '+%Y-%m-%d %H:%M')
           
           # README.mdを更新
           cat > README.md << EOF
           # 今日の癒し犬 🐶
-          
-          ![今日の犬]($DOG_URL)
+           
+           ![今日の犬](${BASE}/daily.jpg?d=$(date +%Y%m%d%H%M))
           
           **画像情報:**
           - サイズ: ${DOG_WIDTH} x ${DOG_HEIGHT}
-          - 最終更新: $CURRENT_DATE
+          - 最終更新: ${CURRENT_DATE} (JST)
           
           ---
           
