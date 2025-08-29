@@ -26,8 +26,24 @@ jobs:
           DOG_URL=$(echo $DOG_DATA | jq -r '.[0].url')
           DOG_WIDTH=$(echo $DOG_DATA | jq -r '.[0].width')
           DOG_HEIGHT=$(echo $DOG_DATA | jq -r '.[0].height')
+
+          # 「ダウンロード → 日付焼き込み」
+          mkdir -p docs
+          # ⚠ 要注意: 外部URLを保存する前に、出力先を限定
+          curl -sL "$DOG_URL" -o docs/daily.jpg
+
+          # ⚠ 要注意: パッケージ導入は最小限
+          sudo apt-get update -y
+          sudo apt-get install -y imagemagick
+          DATE=$(date '+%Y-%m-%d')
+          convert docs/daily.jpg \
+            -gravity SouthEast \
+            -pointsize 48 \
+            -fill white -undercolor '#00000080' \
+            -annotate +20+20 "$DATE" \
+            docs/daily.jpg
           
-          # 現在の日時を取得
+          # 現在の日時を取得（README表示用）
           CURRENT_DATE=$(date '+%Y-%m-%d %H:%M')
           
           # README.mdを更新
@@ -50,6 +66,6 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add README.md
+          git add README.md docs/daily.jpg
           git commit -m "🐶 今日の犬を更新: $(date '+%Y-%m-%d')" || exit 0
           git push
