@@ -18,8 +18,9 @@ jobs:
           set -euo pipefail
 
           # 必要パッケージ
-          sudo apt-get update -y
-          sudo apt-get install -y jq imagemagick
+          NEEDRESTART_MODE=a DEBIAN_FRONTEND=noninteractive sudo -E apt-get -yq update
+          NEEDRESTART_MODE=a DEBIAN_FRONTEND=noninteractive sudo -E apt-get -yq install imagemagick
+
 
           # タイムゾーンをJSTに
           export TZ=Asia/Tokyo
