@@ -1,10 +1,10 @@
 # 今日の癒し犬 🐶
  
-![今日の犬](https://teru-kuma.github.io/daily-character/daily.jpg?d=202512141039)
+![今日の犬](https://teru-kuma.github.io/daily-character/daily.jpg?d=202512181022)
 
 **画像情報:**
 - サイズ: 680 x 453
-- 最終更新: 2025-12-14 10:39 (JST)
+- 最終更新: 2025-12-18 10:22 (JST)
 
 ---
 
