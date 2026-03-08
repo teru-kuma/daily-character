@@ -1,7 +1,7 @@
 name: Daily dog Update
 on:
   schedule:
-    - cron: '0 0 * * *'  # 初期設定 毎日朝9時（日本時間）00***,お昼の12時なら12-9=3 03***
+    #- cron: '0 0 * * *'  # 初期設定 毎日朝9時（日本時間）00***,お昼の12時なら12-9=3 03***
   workflow_dispatch:     # 手動実行も可能
 
 jobs:
